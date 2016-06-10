@@ -1,0 +1,11 @@
+<h2>Add Beer</h2>
+<span>Name:</span><input #beerName >
+<span>Style:</span><input #beerStyle >
+<select [(ngModel)]="selectedOption">
+    <option *ngFor="let o of styles" [value]="o.Number">{{o.Number}}</option>
+</select>
+<span>Comments:</span><input #beerComments >
+<span>Special Ingredients:</span><input #beerSpecialIngredients >
+<span>Recipe:</span><input #beerRecipe >
+
+<button (click)="addBeer(beerName.value, beerComments.value, beerSpecialIngredients.value, beerRecipe.value)">Add</button>

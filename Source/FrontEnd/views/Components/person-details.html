@@ -1,0 +1,66 @@
+<div *ngIf="person">
+    <h2>{{person.name}} details!</h2>
+    <div><label>id: </label>{{person.id}}</div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Name</span>
+                <input [(ngModel)]="person.name" placeholder="First and last name" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Email</span>
+                <input  [(ngModel)]="person.email" placeholder="Email" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Phone</span>
+                <input  [(ngModel)]="person.phone" placeholder="Phone" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Club Name</span>
+                <input  [(ngModel)]="person.clubname" placeholder="Club Name" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">AHA Number</span>
+                <input  [(ngModel)]="person.ahaNumber" placeholder="AHA Number" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Line 1</span>
+                <input  [(ngModel)]="person.line1" placeholder="Address line 1" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Line 2</span>
+                <input  [(ngModel)]="person.line2" placeholder="Address line 2" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">City</span>
+                <input  [(ngModel)]="person.city" placeholder="City" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">State</span>
+                <input  [(ngModel)]="person.state" placeholder="State" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Zip code</span>
+                <input [(ngModel)]="person.zip" placeholder="Zip code" type="text" class="form-control" aria-describedby="basic-addon1">
+            </div>
+        </div>
+    </div>
+</div>
