@@ -1,0 +1,8 @@
+Using the db from:
+https://github.com/Rlshep/BJCP2015BeerStyles
+https://github.com/Rlshep/BJCP2015BeerStyles/tree/master/bjcp_beer_styles/src/main/assets
+
+select (sc.sub_category||'. '||sc.name )as FullName, sc.category_id, sc.sub_category as Number, sc.name, replace(sc.sub_category, sc.category_id, '') as SubCategory, lower(sc.sub_category) as PageReference
+,(select group_concat('<h3>'||s.header||'</h3>'||'<p>'||s.body||'</p>')  from SECTION s where s.sub_category_id = sc._id group by s.sub_category_id order by s.order_number) as StyleReference
+from CATEGORY c
+join SUB_CATEGORY sc on c._id = sc.category_id
