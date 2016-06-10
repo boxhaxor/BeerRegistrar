@@ -2,13 +2,12 @@
   "name": "BeerRegistrar",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run lite",
+    "start": "concurrent --kill-others \"npm run lite\" \"gulp watch\"",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install",
-    "run": "gulp watch && npm start"
+    "postinstall": "typings install"
   },
   "license": "ISC",
   "dependencies": {
@@ -40,9 +39,8 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "concurrently": "*",
+    "concurrently": "^2.1.0",
     "gulp": "^3.9.1",
-    "gulp-cli": "^1.2.1",
     "gulp-debug": "*",
     "gulp-inject": "*",
     "gulp-nodemon": "*",
