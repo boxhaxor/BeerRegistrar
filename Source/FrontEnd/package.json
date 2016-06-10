@@ -7,7 +7,8 @@
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "run": "gulp watch && npm start"
   },
   "license": "ISC",
   "dependencies": {
@@ -40,7 +41,8 @@
   },
   "devDependencies": {
     "concurrently": "*",
-    "gulp": "*",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.2.1",
     "gulp-debug": "*",
     "gulp-inject": "*",
     "gulp-nodemon": "*",
