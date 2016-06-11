@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation.Beer.Registrar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E358B550-0E95-46B6-B9FF-A3040F1B62DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Web", "Common\Common.Web\Common.Web.csproj", "{399068B8-4069-457E-878A-F995D4038918}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +19,16 @@ Global
 		{921A831E-97BE-4008-AEFD-460A0D64EA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{921A831E-97BE-4008-AEFD-460A0D64EA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{921A831E-97BE-4008-AEFD-460A0D64EA4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399068B8-4069-457E-878A-F995D4038918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399068B8-4069-457E-878A-F995D4038918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399068B8-4069-457E-878A-F995D4038918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399068B8-4069-457E-878A-F995D4038918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{921A831E-97BE-4008-AEFD-460A0D64EA4D} = {E358B550-0E95-46B6-B9FF-A3040F1B62DD}
+		{399068B8-4069-457E-878A-F995D4038918} = {E358B550-0E95-46B6-B9FF-A3040F1B62DD}
 	EndGlobalSection
 EndGlobal
