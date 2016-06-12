@@ -20,6 +20,11 @@ namespace Provider.Beer
 
         public Submitter Save(Submitter toSave)
         {
+            if (toSave.SubmittedDate == default(DateTime))
+            {
+                toSave.SubmittedDate = DateTime.Now;
+            }
+
             using (var db = new SubmitterContext())
             {
                 db.Submitters.AddOrUpdate(toSave);

@@ -22,9 +22,13 @@ namespace Presentation.Beer.Registrar.Controllers
         [HttpPost]
         public ActionResult SubmitEntry(SubmitterViewModel model)
         {
+            SubmitEntryResultViewModel resultModel = new SubmitEntryResultViewModel();
+
             if (!ModelState.IsValid)
             {
-                return this.Json(new {Error= true, ErrorMessages= ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList()});
+                resultModel.Error = true;
+                resultModel.ErrorMessages = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList();
+                return this.Json(resultModel);
             }
 
             var submitterRepo = new SubmitterRepository();
@@ -44,11 +48,24 @@ namespace Presentation.Beer.Registrar.Controllers
 
             if (submitterToSave != null)
             {
-                
+                try
+                {
+                    submitterRepo.Save(submitterToSave);
+                }
+                catch (Exception e)
+                {
+                    resultModel.Error = true;
+                    resultModel.ErrorMessages = new List<string>()
+                    {
+                        string.Format("Couldnt save your entry. {0}", e.Message)
+                    };
+                    return this.Json(resultModel);
+                }
             }
 
+            resultModel.Submitter = Mapper.Map<SubmitterViewModel>(submitterToSave);
 
-            return this.Json(new {});
+            return this.Json(resultModel);
         }
     }
 }
