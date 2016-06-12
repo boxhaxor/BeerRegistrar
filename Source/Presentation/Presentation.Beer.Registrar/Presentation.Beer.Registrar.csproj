@@ -50,6 +50,10 @@
       <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -140,6 +144,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -150,6 +155,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Api\SubmitterViewModel.cs" />
+    <Compile Include="Models\Api\BeerEntryViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -190,8 +197,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
@@ -209,6 +214,14 @@
     <ProjectReference Include="..\..\Common\Common.Web\Common.Web.csproj">
       <Project>{399068b8-4069-457e-878a-f995d4038918}</Project>
       <Name>Common.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.Beer\Domain.Beer.csproj">
+      <Project>{6bae5fec-6c0f-40dc-b490-07c7c2af3867}</Project>
+      <Name>Domain.Beer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Provider\Provider.Beer\Provider.Beer.csproj">
+      <Project>{5a61686e-bad2-4a56-baa4-072f4f640776}</Project>
+      <Name>Provider.Beer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,73 @@
+﻿USE [BeerRegistrar]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__MigrationHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ContextKey] [nvarchar](300) NOT NULL,
+	[Model] [varbinary](max) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK_dbo.__MigrationHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC,
+	[ContextKey] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BeerEntry](
+	[BeerEntryId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Type] [nvarchar](max) NULL,
+	[SpecialIngredients] [nvarchar](max) NULL,
+	[Comments] [nvarchar](max) NULL,
+	[Recipe] [nvarchar](max) NULL,
+	[Submitter_SubmitterId] [int] NULL,
+ CONSTRAINT [PK_dbo.BeerEntry] PRIMARY KEY CLUSTERED 
+(
+	[BeerEntryId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Submitter](
+	[SubmitterId] [int] IDENTITY(1,1) NOT NULL,
+	[SubmitterGuid] [uniqueidentifier] NOT NULL,
+	[SubmittedDate] [datetime] NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Email] [nvarchar](max) NULL,
+	[ClubName] [nvarchar](max) NULL,
+	[AhaNumber] [nvarchar](max) NULL,
+	[PhoneNumber] [nvarchar](max) NULL,
+	[Line1] [nvarchar](max) NULL,
+	[Line2] [nvarchar](max) NULL,
+	[City] [nvarchar](max) NULL,
+	[State] [nvarchar](max) NULL,
+	[ZipCode] [nvarchar](max) NULL,
+ CONSTRAINT [PK_dbo.Submitter] PRIMARY KEY CLUSTERED 
+(
+	[SubmitterId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+CREATE NONCLUSTERED INDEX [IX_Submitter_SubmitterId] ON [dbo].[BeerEntry]
+(
+	[Submitter_SubmitterId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[BeerEntry]  WITH CHECK ADD  CONSTRAINT [FK_dbo.BeerEntry_dbo.Submitter_Submitter_SubmitterId] FOREIGN KEY([Submitter_SubmitterId])
+REFERENCES [dbo].[Submitter] ([SubmitterId])
+GO
+ALTER TABLE [dbo].[BeerEntry] CHECK CONSTRAINT [FK_dbo.BeerEntry_dbo.Submitter_Submitter_SubmitterId]
+GO
