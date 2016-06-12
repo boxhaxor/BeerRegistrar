@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../DomainObjects/beer'], function(exports_1, context_1) {
+System.register(['@angular/core', '../DomainObjects/beer', '@angular/http', 'rxjs/add/operator/toPromise'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../DomainObjects/beer'], function(exports_1, 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, beer_1;
+    var core_1, beer_1, http_1;
     var BeerService, beers, beersPromise;
     return {
         setters:[
@@ -19,10 +19,15 @@ System.register(['@angular/core', '../DomainObjects/beer'], function(exports_1, 
             },
             function (beer_1_1) {
                 beer_1 = beer_1_1;
-            }],
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (_1) {}],
         execute: function() {
             BeerService = (function () {
-                function BeerService() {
+                function BeerService(http) {
+                    this.http = http;
                 }
                 BeerService.prototype.getBeers = function () { return beersPromise; };
                 BeerService.prototype.getBeer = function (id) {
@@ -41,10 +46,22 @@ System.register(['@angular/core', '../DomainObjects/beer'], function(exports_1, 
                         beersPromise.then(function (beers) { return beers.push(beer_2); });
                     }
                 };
+                BeerService.prototype.sendSample = function () {
+                    var headers = new http_1.Headers();
+                    headers.append('Content-Type', 'application/json');
+                    this.http.post('/api/SubmitEntry', JSON.stringify({ "SubmitterId": 0, "SubmitterGuid": "", "Name": "Scott Carter", "Email": "Email", "ClubName": "club", "AhaNumber": "Aha", "PhoneNumber": "phone", "Line1": "line1", "Line2": "line2", "City": "city", "State": "state", "ZipCode": "zip", "Beers": [{ "BeerEntryId": 0, "Name": "beer", "Type": "2A", "SpecialIngredients": "special", "Comments": "comments", "Recipe": "recipe" }] }), { headers: headers })
+                        .toPromise()
+                        .then(function () {
+                        console.log('Worked');
+                    })
+                        .catch(function (error) {
+                        console.log(error);
+                    });
+                };
                 BeerService.nextCrisisId = 100;
                 BeerService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [http_1.Http])
                 ], BeerService);
                 return BeerService;
             }());

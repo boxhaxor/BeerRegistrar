@@ -17,8 +17,8 @@ namespace Presentation.Beer.Registrar
             routes.IgnoreRoute("StaticViews/");
             routes.IgnoreRoute("node_modules/");
             routes.MapRoute(
-                name: "DefaultApi",
-                url: "Api/{controller}/{action}/{id}",
+                name: "Default",
+                url: "Api/{action}/{id}",
                 defaults: new { controller = "Api", action = "Index", id = UrlParameter.Optional }
             );
 

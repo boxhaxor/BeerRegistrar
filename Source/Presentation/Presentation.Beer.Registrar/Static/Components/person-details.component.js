@@ -33,6 +33,10 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
                     this.router = router;
                     console.log('Constructor for PersonDetailsComponent');
                 }
+                PersonDetailsComponent.prototype.sendSample = function () {
+                    console.log('sendingSample');
+                    this._beerService.sendSample();
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', person_1.Person)

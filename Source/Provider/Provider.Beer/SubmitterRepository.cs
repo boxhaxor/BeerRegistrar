@@ -28,6 +28,7 @@ namespace Provider.Beer
             using (var db = new SubmitterContext())
             {
                 db.Submitters.AddOrUpdate(toSave);
+                db.SaveChanges();
             }
             return toSave;
         }

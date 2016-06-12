@@ -16,4 +16,9 @@ export class PersonDetailsComponent {
       ){
 	  console.log('Constructor for PersonDetailsComponent');
   }
+
+  sendSample(){
+    console.log('sendingSample');
+    this._beerService.sendSample();
+  }
 }

@@ -1,10 +1,10 @@
 ///<reference path="../typings/browser/ambient/es6-shim/es6-shim.d.ts" />
 ///<reference path='../node_modules/immutable/dist/Immutable.d.ts'/>
 /// <reference path="../typings/browser.d.ts" />
-System.register(['@angular/platform-browser-dynamic', '@angular/core', './app.component', '@angular/router'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser-dynamic', '@angular/core', './app.component', '@angular/router', '@angular/http'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, core_1, app_component_1, router_1;
+    var platform_browser_dynamic_1, core_1, app_component_1, router_1, http_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
@@ -18,10 +18,14 @@ System.register(['@angular/platform-browser-dynamic', '@angular/core', './app.co
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [
                 router_1.ROUTER_PROVIDERS,
+                http_1.HTTP_PROVIDERS,
                 [core_1.provide(Window, { useValue: window })]
             ]).then(function (success) { return console.log('Bootstrap success'); })
                 .catch(function (error) { return console.log(error); });

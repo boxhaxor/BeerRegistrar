@@ -8,7 +8,6 @@ namespace Presentation.Beer.Registrar.Models.Api
     {
         public int SubmitterId { get; set; }
         public string SubmitterGuid { get; set; }
-        public DateTime SubmittedDate { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

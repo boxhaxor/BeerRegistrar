@@ -15,6 +15,11 @@ namespace Presentation.Beer.Registrar.Controllers
         // GET: Api
         public ActionResult Index()
         {
+            return this.Json(new SubmitterViewModel() {Beers = new List<BeerEntryViewModel>() {new BeerEntryViewModel()} }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Another()
+        {
             return this.Json(new {}, JsonRequestBehavior.AllowGet);
         }
 

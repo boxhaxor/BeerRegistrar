@@ -8,8 +8,11 @@ import {provide} from '@angular/core';
 
 import {AppComponent}     from './app.component';
 import {ROUTER_PROVIDERS} from '@angular/router';
+import { HTTP_PROVIDERS } from '@angular/http';
+
 bootstrap(AppComponent, [
   ROUTER_PROVIDERS,
+  HTTP_PROVIDERS,
   [provide(Window, {useValue: window})]
 ]).then(success => console.log('Bootstrap success'))
 .catch(error => console.log(error));
