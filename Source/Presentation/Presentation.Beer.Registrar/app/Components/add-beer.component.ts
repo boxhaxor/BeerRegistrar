@@ -1,6 +1,6 @@
 import {Component}     from '@angular/core';
 import {Router, RouteSegment } from '@angular/router';
-import {BeerService}   from '../Services/beer.service';
+import {PersonService}   from '../Services/person.service';
 
 @Component({
   templateUrl: 'StaticViews/Components/add-beer.html'
@@ -10,7 +10,7 @@ export class AddBeerComponent {
   styles: any;
   selectedOption: string;
   
-  constructor(private _beerService: BeerService,
+  constructor(private _personService: PersonService,
       private router: Router,
       private window: Window) {
     this.styles = this.window.com.beer.registrar.bjcpstyles.allStyles;
@@ -18,7 +18,7 @@ export class AddBeerComponent {
 	  console.log('Constructor for addBeer');
   }
   addBeer(name:string, comments:string, specialIngredients:string, recipe:string){
-    this._beerService.addBeer(name, this.selectedOption, comments, specialIngredients, recipe);
+    this._personService.addBeer(name, this.selectedOption, comments, specialIngredients, recipe);
     this.afterBeerAdd();
   }
   

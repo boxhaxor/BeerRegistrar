@@ -18,11 +18,23 @@ namespace Provider.Beer
             }
         }
 
+        public Submitter GetByGuid(Guid submitterGuid)
+        {
+            using (var db = new SubmitterContext())
+            {
+                return db.Submitters.FirstOrDefault(x => x.SubmitterGuid == submitterGuid);
+            }
+        }
+
         public Submitter Save(Submitter toSave)
         {
             if (toSave.SubmittedDate == default(DateTime))
             {
                 toSave.SubmittedDate = DateTime.Now;
+            }
+            if (toSave.SubmitterGuid == Guid.Empty)
+            {
+                toSave.SubmitterGuid = Guid.NewGuid();
             }
 
             using (var db = new SubmitterContext())

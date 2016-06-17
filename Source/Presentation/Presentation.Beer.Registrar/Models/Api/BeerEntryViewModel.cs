@@ -4,13 +4,13 @@ namespace Presentation.Beer.Registrar.Models.Api
 {
     public class BeerEntryViewModel
     {
-        public int BeerEntryId { get; set; }
+        public int? id { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string name { get; set; }
         [Required]
-        public string Type { get; set; }
-        public string SpecialIngredients { get; set; }
-        public string Comments { get; set; }
-        public string Recipe { get; set; }
+        public string style { get; set; }
+        public string specialIngredients { get; set; }
+        public string comments { get; set; }
+        public string recipe { get; set; }
     }
 }

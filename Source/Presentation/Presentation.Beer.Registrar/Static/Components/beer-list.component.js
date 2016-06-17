@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../Services/beer.service', './view-beer.component', './person-details.component', '../Services/person.service'], function(exports_1, context_1) {
+System.register(['@angular/core', './view-beer.component', './person-details.component', '../Services/person.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '../Services/beer.service', './view-beer.compo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, beer_service_1, view_beer_component_1, person_details_component_1, person_service_1;
+    var core_1, view_beer_component_1, person_details_component_1, person_service_1;
     var BeerListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (beer_service_1_1) {
-                beer_service_1 = beer_service_1_1;
             },
             function (view_beer_component_1_1) {
                 view_beer_component_1 = view_beer_component_1_1;
@@ -31,9 +28,8 @@ System.register(['@angular/core', '../Services/beer.service', './view-beer.compo
             }],
         execute: function() {
             BeerListComponent = (function () {
-                function BeerListComponent(_beerService, window, _personService) {
+                function BeerListComponent(window, _personService) {
                     var _this = this;
-                    this._beerService = _beerService;
                     this.window = window;
                     this._personService = _personService;
                     this.title = 'Beer List Component';
@@ -46,7 +42,7 @@ System.register(['@angular/core', '../Services/beer.service', './view-beer.compo
                 }
                 BeerListComponent.prototype.getBeers = function () {
                     var _this = this;
-                    this._beerService.getBeers().then(function (beers) { return _this.beers = beers; });
+                    this._personService.getBeers().then(function (beers) { return _this.beers = beers; });
                 };
                 BeerListComponent.prototype.onSelect = function (beer) {
                     if (this.selectedBeer == beer) {
@@ -62,7 +58,7 @@ System.register(['@angular/core', '../Services/beer.service', './view-beer.compo
                         templateUrl: 'StaticViews/Components/beer-list.html',
                         directives: [view_beer_component_1.ViewBeerComponent, person_details_component_1.PersonDetailsComponent]
                     }), 
-                    __metadata('design:paramtypes', [beer_service_1.BeerService, Window, person_service_1.PersonService])
+                    __metadata('design:paramtypes', [Window, person_service_1.PersonService])
                 ], BeerListComponent);
                 return BeerListComponent;
             }());

@@ -6,8 +6,9 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Person = (function () {
-                function Person(id, name, email, phone, clubName, ahaNumber, line1, line2, city, state, zip) {
+                function Person(id, guid, name, email, phone, clubName, ahaNumber, line1, line2, city, state, zip) {
                     this.id = id;
+                    this.guid = guid;
                     this.name = name;
                     this.email = email;
                     this.phone = phone;
@@ -18,6 +19,7 @@ System.register([], function(exports_1, context_1) {
                     this.city = city;
                     this.state = state;
                     this.zip = zip;
+                    this.beers = [];
                 }
                 return Person;
             }());

@@ -6,27 +6,27 @@ namespace Presentation.Beer.Registrar.Models.Api
 {
     public class SubmitterViewModel
     {
-        public int SubmitterId { get; set; }
-        public string SubmitterGuid { get; set; }
+        public int? id { get; set; }
+        public string guid { get; set; }
         [Required]
-        public string Name { get; set; }
+        public string name { get; set; }
         [Required]
-        public string Email { get; set; }
-        public string ClubName { get; set; }
-        public string AhaNumber { get; set; }
-        public string PhoneNumber { get; set; }
+        public string email { get; set; }
+        public string clubName { get; set; }
+        public string ahaNumber { get; set; }
+        public string phone { get; set; }
 
         [Required]
-        public string Line1 { get; set; }
-        public string Line2 { get; set; }
+        public string line1 { get; set; }
+        public string line2 { get; set; }
         [Required]
-        public string City { get; set; }
+        public string city { get; set; }
         [Required]
-        public string State { get; set; }
+        public string state { get; set; }
         [Required]
-        public string ZipCode { get; set; }
+        public string zip { get; set; }
 
         [Required(ErrorMessage = "Must have beers to submit")]
-        public IList<BeerEntryViewModel> Beers { get; set; }
+        public IList<BeerEntryViewModel> beers { get; set; }
     }
 }

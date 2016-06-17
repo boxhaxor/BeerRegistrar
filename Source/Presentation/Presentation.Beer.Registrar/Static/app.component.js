@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './Components/beer-list.component', './Components/add-beer.component', './Services/beer.service', './Services/person.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './Components/beer-list.component', './Components/add-beer.component', './Services/person.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './Components/beer-list.com
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, beer_list_component_1, add_beer_component_1, beer_service_1, person_service_1;
+    var core_1, router_1, beer_list_component_1, add_beer_component_1, person_service_1;
     var AppComponent;
     return {
         setters:[
@@ -26,16 +26,13 @@ System.register(['@angular/core', '@angular/router', './Components/beer-list.com
             function (add_beer_component_1_1) {
                 add_beer_component_1 = add_beer_component_1_1;
             },
-            function (beer_service_1_1) {
-                beer_service_1 = beer_service_1_1;
-            },
             function (person_service_1_1) {
                 person_service_1 = person_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent(_beerService, router) {
-                    this._beerService = _beerService;
+                function AppComponent(_personService, router) {
+                    this._personService = _personService;
                     this.router = router;
                 }
                 AppComponent.prototype.ngOnInit = function () {
@@ -46,13 +43,13 @@ System.register(['@angular/core', '@angular/router', './Components/beer-list.com
                         selector: 'my-app',
                         templateUrl: 'StaticViews/app.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [beer_service_1.BeerService, person_service_1.PersonService]
+                        providers: [person_service_1.PersonService]
                     }),
                     router_1.Routes([
                         { path: '/beer-list', component: beer_list_component_1.BeerListComponent },
                         { path: '/add-beer', component: add_beer_component_1.AddBeerComponent }
                     ]), 
-                    __metadata('design:paramtypes', [beer_service_1.BeerService, router_1.Router])
+                    __metadata('design:paramtypes', [person_service_1.PersonService, router_1.Router])
                 ], AppComponent);
                 return AppComponent;
             }());

@@ -1,7 +1,9 @@
-
+import {Beer} from './beer'
 export class Person {
+  public beers: Beer[]
   constructor(
     public id: number, 
+    public guid: string,
     public name: string,
     public email: string,
     public phone: string,
@@ -13,5 +15,6 @@ export class Person {
     public state: string,
     public zip: string
     ) {
+      this.beers = [];
    }
 }

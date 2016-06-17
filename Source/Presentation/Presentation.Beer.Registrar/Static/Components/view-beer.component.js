@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../Services/beer.service', '../DomainObjects/beer'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../Services/person.service', '../DomainObjects/beer'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, beer_service_1, beer_1;
+    var core_1, router_1, person_service_1, beer_1;
     var ViewBeerComponent;
     return {
         setters:[
@@ -20,16 +20,16 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (beer_service_1_1) {
-                beer_service_1 = beer_service_1_1;
+            function (person_service_1_1) {
+                person_service_1 = person_service_1_1;
             },
             function (beer_1_1) {
                 beer_1 = beer_1_1;
             }],
         execute: function() {
             ViewBeerComponent = (function () {
-                function ViewBeerComponent(_beerService, router) {
-                    this._beerService = _beerService;
+                function ViewBeerComponent(_personService, router) {
+                    this._personService = _personService;
                     this.router = router;
                     console.log('Constructor for ViewBeerComponent');
                 }
@@ -42,7 +42,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
                         selector: 'view-beer',
                         templateUrl: 'StaticViews/Components/view-beer.html',
                     }), 
-                    __metadata('design:paramtypes', [beer_service_1.BeerService, router_1.Router])
+                    __metadata('design:paramtypes', [person_service_1.PersonService, router_1.Router])
                 ], ViewBeerComponent);
                 return ViewBeerComponent;
             }());

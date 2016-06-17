@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../Services/beer.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../Services/person.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service']
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, beer_service_1;
+    var core_1, router_1, person_service_1;
     var AddBeerComponent;
     return {
         setters:[
@@ -20,20 +20,20 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service']
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (beer_service_1_1) {
-                beer_service_1 = beer_service_1_1;
+            function (person_service_1_1) {
+                person_service_1 = person_service_1_1;
             }],
         execute: function() {
             AddBeerComponent = (function () {
-                function AddBeerComponent(_beerService, router, window) {
-                    this._beerService = _beerService;
+                function AddBeerComponent(_personService, router, window) {
+                    this._personService = _personService;
                     this.router = router;
                     this.window = window;
                     this.styles = this.window.com.beer.registrar.bjcpstyles.allStyles;
                     console.log('Constructor for addBeer');
                 }
                 AddBeerComponent.prototype.addBeer = function (name, comments, specialIngredients, recipe) {
-                    this._beerService.addBeer(name, this.selectedOption, comments, specialIngredients, recipe);
+                    this._personService.addBeer(name, this.selectedOption, comments, specialIngredients, recipe);
                     this.afterBeerAdd();
                 };
                 AddBeerComponent.prototype.afterBeerAdd = function () {
@@ -44,7 +44,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service']
                     core_1.Component({
                         templateUrl: 'StaticViews/Components/add-beer.html'
                     }), 
-                    __metadata('design:paramtypes', [beer_service_1.BeerService, router_1.Router, Window])
+                    __metadata('design:paramtypes', [person_service_1.PersonService, router_1.Router, Window])
                 ], AddBeerComponent);
                 return AddBeerComponent;
             }());

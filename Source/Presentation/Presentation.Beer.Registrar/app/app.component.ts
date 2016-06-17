@@ -4,14 +4,14 @@ import { ROUTER_DIRECTIVES, Routes, Router } from '@angular/router';
 import {BeerListComponent}   from './Components/beer-list.component';
 import {AddBeerComponent}     from './Components/add-beer.component';
 
-import {BeerService} from './Services/beer.service'
 import {PersonService} from './Services/person.service'
+import {Person} from './DomainObjects/person'
 
 @Component({
   selector: 'my-app',
   templateUrl: 'StaticViews/app.component.html',
   directives: [ROUTER_DIRECTIVES],
-  providers:  [BeerService, PersonService]
+  providers:  [PersonService]
 })
 
 @Routes([
@@ -19,7 +19,7 @@ import {PersonService} from './Services/person.service'
   { path: '/add-beer', component: AddBeerComponent}
 ])
 export class AppComponent implements OnInit {
-    constructor(private _beerService: BeerService,
+    constructor(private _personService: PersonService,
     private router: Router) {
       
     }

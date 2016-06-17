@@ -15,7 +15,7 @@ namespace Presentation.Beer.Registrar.Controllers
         // GET: Api
         public ActionResult Index()
         {
-            return this.Json(new SubmitterViewModel() {Beers = new List<BeerEntryViewModel>() {new BeerEntryViewModel()} }, JsonRequestBehavior.AllowGet);
+            return this.Json(new SubmitterViewModel() {beers = new List<BeerEntryViewModel>() {new BeerEntryViewModel()} }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Another()
@@ -40,10 +40,10 @@ namespace Presentation.Beer.Registrar.Controllers
 
             Submitter submitterToSave;
 
-            if (model.SubmitterId != 0)
+            if (model.id.HasValue && model.id != 0)
             {
                 //Since we want to merge the new info into the connect entity so we can update not insert
-                submitterToSave = submitterRepo.GetById(model.SubmitterId);
+                submitterToSave = submitterRepo.GetById(model.id.Value);
                 submitterToSave = Mapper.Map<SubmitterViewModel, Submitter>(model, submitterToSave);
             }
             else
@@ -70,6 +70,39 @@ namespace Presentation.Beer.Registrar.Controllers
 
             resultModel.Submitter = Mapper.Map<SubmitterViewModel>(submitterToSave);
 
+            return this.Json(resultModel);
+        }
+
+        [HttpPost]
+        public ActionResult GetEntry(string entryGuid)
+        {
+            GetEntryResultViewModel resultModel = new GetEntryResultViewModel();
+
+            if (string.IsNullOrWhiteSpace(entryGuid))
+            {
+                resultModel.Error = true;
+                resultModel.ErrorMessages = new List<string>()
+                    {
+                        string.Format("Didnt send a guid")
+                    };
+                return this.Json(resultModel);
+            }
+
+
+            Guid guid;
+            if (Guid.TryParse(entryGuid, out guid))
+            {
+                SubmitterRepository repo = new SubmitterRepository();
+                Submitter submitter = repo.GetByGuid(guid);
+
+
+            }
+
+            resultModel.Error = true;
+            resultModel.ErrorMessages = new List<string>()
+                    {
+                        string.Format("Guid wasnt valid")
+                    };
             return this.Json(resultModel);
         }
     }

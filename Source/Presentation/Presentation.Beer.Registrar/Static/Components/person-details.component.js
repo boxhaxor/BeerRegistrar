@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', '../Services/beer.service', '../DomainObjects/person'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', '../Services/person.service', '../DomainObjects/person'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, beer_service_1, person_1;
+    var core_1, router_1, person_service_1, person_1;
     var PersonDetailsComponent;
     return {
         setters:[
@@ -20,22 +20,25 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (beer_service_1_1) {
-                beer_service_1 = beer_service_1_1;
+            function (person_service_1_1) {
+                person_service_1 = person_service_1_1;
             },
             function (person_1_1) {
                 person_1 = person_1_1;
             }],
         execute: function() {
             PersonDetailsComponent = (function () {
-                function PersonDetailsComponent(_beerService, router) {
-                    this._beerService = _beerService;
+                function PersonDetailsComponent(_personService, router) {
+                    this._personService = _personService;
                     this.router = router;
                     console.log('Constructor for PersonDetailsComponent');
                 }
+                PersonDetailsComponent.prototype.sendPerson = function () {
+                    this._personService.savePerson();
+                };
                 PersonDetailsComponent.prototype.sendSample = function () {
                     console.log('sendingSample');
-                    this._beerService.sendSample();
+                    this._personService.sendSample();
                 };
                 __decorate([
                     core_1.Input(), 
@@ -46,7 +49,7 @@ System.register(['@angular/core', '@angular/router', '../Services/beer.service',
                         selector: 'person-details',
                         templateUrl: 'StaticViews/Components/person-details.html',
                     }), 
-                    __metadata('design:paramtypes', [beer_service_1.BeerService, router_1.Router])
+                    __metadata('design:paramtypes', [person_service_1.PersonService, router_1.Router])
                 ], PersonDetailsComponent);
                 return PersonDetailsComponent;
             }());

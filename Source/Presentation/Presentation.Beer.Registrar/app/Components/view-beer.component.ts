@@ -1,6 +1,6 @@
 import {Component, Input}     from '@angular/core';
 import {Router, RouteSegment } from '@angular/router';
-import {BeerService}   from '../Services/beer.service';
+import {PersonService}   from '../Services/person.service';
 import {Beer} from '../DomainObjects/beer';
 
 @Component({
@@ -11,7 +11,7 @@ import {Beer} from '../DomainObjects/beer';
 export class ViewBeerComponent { 
   @Input() 
   beer: Beer;
-  constructor(private _beerService: BeerService,
+  constructor(private _personService: PersonService,
       private router: Router){
 	  console.log('Constructor for ViewBeerComponent');
   }

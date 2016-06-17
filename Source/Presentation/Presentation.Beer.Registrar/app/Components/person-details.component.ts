@@ -1,6 +1,6 @@
 import {Component, Input}     from '@angular/core';
 import {Router, RouteSegment } from '@angular/router';
-import {BeerService}   from '../Services/beer.service';
+import {PersonService}   from '../Services/person.service';
 import {Person} from '../DomainObjects/person';
 
 @Component({
@@ -11,14 +11,16 @@ import {Person} from '../DomainObjects/person';
 export class PersonDetailsComponent { 
   @Input() 
   person: Person;
-  constructor(private _beerService: BeerService,
+  constructor(private _personService: PersonService,
       private router: Router
       ){
 	  console.log('Constructor for PersonDetailsComponent');
   }
-
+  sendPerson(){
+    this._personService.savePerson();
+  }
   sendSample(){
     console.log('sendingSample');
-    this._beerService.sendSample();
+    this._personService.sendSample();
   }
 }

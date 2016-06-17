@@ -1,5 +1,4 @@
 import {Component}  from '@angular/core';
-import {BeerService}  from '../Services/beer.service';
 import {Beer} from '../DomainObjects/beer';
 import {Person} from '../DomainObjects/person';
 import {ViewBeerComponent}     from './view-beer.component';
@@ -18,8 +17,7 @@ export class BeerListComponent{
   person: Person;
   styles: any;
 
-  constructor(private _beerService: BeerService,
-              private window: Window,
+  constructor(private window: Window,
               private _personService: PersonService){
     console.log('Constructor for BeerList');
     this.getBeers();
@@ -31,7 +29,7 @@ export class BeerListComponent{
   }
 
   getBeers() {
-	  this._beerService.getBeers().then(beers => this.beers = beers);
+	  this._personService.getBeers().then(beers => this.beers = beers);
   }
   onSelect(beer: Beer){
     if(this.selectedBeer == beer){
