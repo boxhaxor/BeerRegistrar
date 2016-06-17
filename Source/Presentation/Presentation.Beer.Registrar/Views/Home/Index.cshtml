@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <title>Angular 2 QuickStart</title>
+    <title>Beer Registrar</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,9 +28,71 @@
 
 <!-- 3. Display the application -->
 <body>
-    <my-app>Loading beer...</my-app>
+  <!--  Nav Start -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapdsse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Beer Registrar</a>
+            </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+  <!-- Nav end -->
+	<div class="container">
+	    <div class="hero-unit row">
+	    	    <h1 style="text-align: center;">Western Idaho Fair</h1>
+	    	    <h4 style="text-align: center;margin-bottom:30px;">Beer competition organized by the <a target="_blank" href="http://snakeriverbrewers.org">Snake River Brewers</a></h4>
+	    	    <h2>Register your beer and wine!</h2>
+	    	    <p>Please refer to the rules on the <a target="_blank" href="http://sharemyfair.com/competitions/competitive-exhibitors">Western Idaho Fair website.</a>  Beer is in the <a target="_blank" href="http://sharemyfair.com/images/2016/files/Dept_12_-Agriculture_Department.pdf">agriculture category.</a>  All BJCP categories are available, we will collapse categories where necessary.</p>
+	    	    <h3>How to enter:</h3>
+	    	    <ol>
+	    	    	<li>Ferment a tasty beverage!  Bottle some for submission:  </li>
+	    	    		<ul>
+	    	    			<li>Beer (3) 12oz (or larger) brown or green bottles.</li>
+	    	    			<li>Wine (3) -500 ml bottles or (2) – 750 ml bottles</li>
+	    	    		</ul>
+	    	    	<li>Fill out the personal information form below. </li>
+	    	    	<li>For each submission (both beer and wine) fill out the beer/wine form and add it.  You can add more than one entry, just click on the 'add an entry' button.  After your information is entered correctly, submit it!</li>
+	    	    	<li>Label your bottles: Print <a target="_blank" href="http://www.bjcp.org/docs/BJCP_BottleID.pdf">beer & wine labels</a>. Attach these labels with rubber bands to the bottles, please do not tape your labels on.</li>
+	    	    	<li>Please add comment noting if it's a pro entry</li>
+	    	    	<li>Drop off your beer.  <a target="_blank" href="/Contact">Info is on the contact page.</a></li>
+	    	    	<li>*Note:  You cannot register at the fair, submission on this is website is required.  Be sure to attach the appropriate paperwork to the bottles.</li>
+	    	    </ol>
+		</div>
+
+
+
+    <my-app>Loading beer...</my-app>
+    
+    </div>
     @Scripts.Render("~/bundles/styles")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2438666-6']);
+    _gaq.push(['_setDomainName', 'microbrewin.com']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
 </body>
 
 </html>
