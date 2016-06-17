@@ -81,7 +81,7 @@ System.register(['@angular/core', '../DomainObjects/person', '../DomainObjects/b
                 return PersonService;
             }());
             exports_1("PersonService", PersonService);
-            person = new person_1.Person(null, "", "", "", "", "", "", "", "", "", "", "");
+            person = new person_1.Person(null, null, "", "", "", "", "", "", "", "", "", "");
             personPromise = Promise.resolve(person);
         }
     }

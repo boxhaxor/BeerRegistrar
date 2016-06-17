@@ -63,6 +63,6 @@ export class PersonService {
 
 }
 
-var person = new Person(null,"","","","","","","","","","","");
+var person = new Person(null,null,"","","","","","","","","","");
 
 var personPromise = Promise.resolve(person);

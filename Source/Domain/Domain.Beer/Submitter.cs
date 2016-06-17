@@ -12,7 +12,7 @@ namespace Domain.Beer
     {
         [Key]
         public int SubmitterId { get; set; }
-        public Guid SubmitterGuid { get; set; }
+        public Guid? SubmitterGuid { get; set; }
 
         public DateTime SubmittedDate { get; set; }
         public string Name { get; set; }

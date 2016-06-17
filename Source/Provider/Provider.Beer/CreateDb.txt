@@ -42,7 +42,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Submitter](
 	[SubmitterId] [int] IDENTITY(1,1) NOT NULL,
-	[SubmitterGuid] [uniqueidentifier] NOT NULL,
+	[SubmitterGuid] [uniqueidentifier] NULL,
 	[SubmittedDate] [datetime] NOT NULL,
 	[Name] [nvarchar](max) NULL,
 	[Email] [nvarchar](max) NULL,

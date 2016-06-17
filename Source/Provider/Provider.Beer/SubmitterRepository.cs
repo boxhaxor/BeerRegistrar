@@ -32,7 +32,7 @@ namespace Provider.Beer
             {
                 toSave.SubmittedDate = DateTime.Now;
             }
-            if (toSave.SubmitterGuid == Guid.Empty)
+            if (toSave.SubmitterGuid == Guid.Empty || !toSave.SubmitterGuid.HasValue)
             {
                 toSave.SubmitterGuid = Guid.NewGuid();
             }
